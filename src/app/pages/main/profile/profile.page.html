@@ -2,12 +2,13 @@
 
 <ion-content class="ion-padding-top ion-text-center">
     <ion-avatar>
-        <ion-icon class="empty-icon" name="person-circle-outline"></ion-icon>
-    </ion-avatar>
-    <ion-button class="photo-btn" mode="ios" size="small" shape="round">
+        <img *ngIf="user().img" [src]="user()?.img" alt="">
+        <ion-icon *ngIf="!user().img" class="empty-icon" name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+  
+    <ion-button class="photo-btn" (click)="takeImage()" mode="ios" size="small" shape="round">
         <ion-icon name="camera-outline"></ion-icon>
     </ion-button>
 
-    <h4>Nineck-Aleksander</h4>
-    <div class="cargo">Director General</div>
+    <h4>{{ user().name }}</h4>
 </ion-content>
